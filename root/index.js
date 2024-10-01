@@ -27,3 +27,14 @@ var qrcode = new QRCode("qrcode", {
       }
     });
   
+  const laserEffect = document.querySelector('.laser');
+  
+  const randomizeLaserPosition = () => {
+    const randomX = Math.random() * 100; // Random X position
+    const randomY = Math.random() * 100; // Random Y position
+    laserEffect.style.transform = `translate(${randomX}vw, ${randomY}vh)`;
+  };
+  
+  // Move laser effect every second
+  setInterval(randomizeLaserPosition, 1000);
+  

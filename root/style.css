@@ -16,51 +16,35 @@ body {
   justify-content: center;
   flex-direction: column;
   color: #fff;
-  perspective: 1000px; /* Adding 3D perspective */
+  perspective: 1000px;
+  background: linear-gradient(135deg, #ff7e00, #00bfff, #ff00ff, #00ff7e);
+  background-size: 400% 400%;
+  animation: gradient 10s ease infinite;
 }
 
-h1 {
-  font-size: 3em;
-  text-align: center;
-  text-transform: uppercase;
-  letter-spacing: 2px;
-  color: #fff;
-  position: relative;
-  margin-bottom: 20px;
-  text-shadow: 4px 4px 10px rgba(0, 0, 0, 0.8);
-  animation: floatTitle 3s infinite ease-in-out;
-}
-
-/* Trippy animated background */
-body::before {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background: linear-gradient(135deg, #ff00ff, #00ff00, #00ffff, #ff0000);
-  background-size: 300% 300%;
-  z-index: -1;
-  animation: trippyBackground 10s infinite ease-in-out;
-}
-
-@keyframes trippyBackground {
+@keyframes gradient {
   0% { background-position: 0% 50%; }
   50% { background-position: 100% 50%; }
   100% { background-position: 0% 50%; }
 }
 
-@keyframes floatTitle {
-  0%, 100% {
-    transform: translateY(0);
-  }
-  50% {
-    transform: translateY(-10px);
-  }
+h1 {
+  font-size: 4em;
+  text-align: center;
+  text-transform: uppercase;
+  letter-spacing: 3px;
+  color: #fff;
+  position: relative;
+  margin-bottom: 20px;
+  text-shadow: 4px 4px 10px rgba(0, 0, 0, 0.9);
+  animation: floatTitle 3s infinite ease-in-out;
 }
 
-/* 3D Input Field */
+@keyframes floatTitle {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-15px); }
+}
+
 input {
   height: 50px;
   margin: 20px 0;
@@ -80,11 +64,10 @@ input:focus {
   box-shadow: 0px 15px 30px rgba(0, 0, 0, 0.6);
 }
 
-/* 3D Button */
 button {
   height: 50px;
   width: 320px;
-  background: linear-gradient(145deg, #8e44ad, #3498db);
+  background: linear-gradient(145deg, #fbc2eb, #a6c1ee);
   color: #fff;
   font-size: 18px;
   border: none;
@@ -99,7 +82,6 @@ button:hover {
   box-shadow: 0px 15px 30px rgba(0, 0, 0, 0.6);
 }
 
-/* 3D QR Code Box */
 .output {
   display: flex;
   align-items: center;
@@ -112,37 +94,34 @@ button:hover {
   margin-top: 30px;
   width: 200px;
   height: 200px;
-  perspective: 1000px; /* Adds 3D perspective */
 }
 
 #qrcode {
   width: 150px;
   height: 150px;
-  transform: rotateY(45deg); /* Rotating slightly to add 3D effect */
+  transform: rotateY(45deg);
   box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.5);
   transition: all 0.5s ease;
-  animation: moveQR 10s infinite alternate; /* Add movement animation */
+  animation: moveQR 10s infinite alternate;
 }
 
-.output:hover #qrcode {
-  transform: rotateY(0deg) rotateX(20deg); /* Further rotate on hover */
-}
-
-/* QR Code Movement Animation */
 @keyframes moveQR {
-  0% {
-    transform: translate(0, 0) rotateY(45deg);
-  }
-  25% {
-    transform: translate(200px, 0) rotateY(45deg);
-  }
-  50% {
-    transform: translate(200px, 200px) rotateY(45deg);
-  }
-  75% {
-    transform: translate(0, 200px) rotateY(45deg);
-  }
-  100% {
-    transform: translate(0, 0) rotateY(45deg);
-  }
+  0% { transform: translate(0, 0) rotateY(45deg); }
+  25% { transform: translate(200px, 0) rotateY(45deg); }
+  50% { transform: translate(200px, 200px) rotateY(45deg); }
+  75% { transform: translate(0, 200px) rotateY(45deg); }
+  100% { transform: translate(0, 0) rotateY(45deg); }
+}
+
+.goofy-cat {
+  position: absolute;
+  bottom: 10px; /* Adjust position as needed */
+  left: 10px; /* Adjust position as needed */
+  width: 150px; /* Adjust size as needed */
+  animation: wiggle 1s infinite;
+}
+
+@keyframes wiggle {
+  0%, 100% { transform: rotate(0deg); }
+  50% { transform: rotate(10deg); }
 }
